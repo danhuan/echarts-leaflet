@@ -146,7 +146,7 @@ LeafletCoordSys.create = function (ecModel, api) {
       var _iteratorError = undefined;
 
       try {
-        for (var _iterator = tiles[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+        /*for (var _iterator = tiles[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
           var tile = _step.value;
 
           var tileLayer = L.tileLayer(tile.urlTemplate, tile.options);
@@ -161,7 +161,19 @@ LeafletCoordSys.create = function (ecModel, api) {
             // add all tiles without labels into the map
             tileLayer.addTo(_map);
           }
-        }
+        }*/
+
+        /*====change by danhuan s 天地图需要添加多个图层，底图层+文字层，所以做以下修改====*/
+          var layerGroup = [];
+          for (var _iterator = tiles[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+              var tile = _step.value;
+              // console.log(tile);
+              var tileLayer = L.tileLayer(tile.urlTemplate, tile.options);
+              layerGroup.push(tileLayer);
+          }
+          L.layerGroup(layerGroup).addTo(_map);
+          /*====change by danhuan e ====*/
+
         // add layer control when there are more than two layers
       } catch (err) {
         _didIteratorError = true;

@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>echarts</title>
+</head>
+<style>
+    html,body{
+        width: 100%;
+        height: 100%;
+    }
+</style>
+<body>
+<div class="amap-container" style="height: 100%; width: 100%" id="guiJiMap"></div>
+
+
+<script src="jquery/jquery-1.11.1.min.js"></script>
+<script src="echarts/echarts-all-3.js"></script>
+<script src="https://api.map.baidu.com/getscript?v=2.0&ak=7ofpRgTwaFGymYXViZ6IljEDBWP4Xc2M&services=&t=20161227185926&s=1"></script>
+<script src="echarts/extension/bmap.js"></script>
+<script src="echarts/echarts-init.js"></script>
+<script>
+    var data = {"code":0,"message":"请求处理成功","data":{"mapCenter":[113.278228759766,23.13585281372],"guijidata":[{"locs":[{"loc":[113.389282226562,23.13971138],"name":"棠德花苑","staytime":"486min","time":"2017-09-16 08:06:37"},{"loc":[113.260665893555,23.13276481628],"name":"星际会棋牌休闲会馆","staytime":"85min","time":"2017-09-16 09:55:07"},{"loc":[113.254196166992,23.13305282593],"name":"兴隆广场","staytime":"43min","time":"2017-09-16 10:42:52"},{"loc":[113.338333129883,23.1376991272],"name":"宏发大厦(天河南二路)","staytime":"41min","time":"2017-09-16 11:43:48"},{"loc":[113.257064819336,23.11393547058],"name":"蓝龙电玩","staytime":"194min","time":"2017-09-16 15:15:27"},{"loc":[113.33553314209,23.14232063293],"name":"福卡斯国际商务中心","staytime":"168min","time":"2017-09-16 18:22:45"},{"loc":[113.343246459961,23.13186264038],"name":"维多利大厦(海居路)","staytime":"124min","time":"2017-09-16 20:36:21"},{"loc":[113.389282226562,23.13971138],"name":"棠德花苑","staytime":"186min","time":"2017-09-16 23:59:19"},{"loc":[113.389282226562,23.13971138],"name":"棠德花苑","staytime":"486min","time":"2017-09-17 08:06:11"},{"loc":[113.341278076172,23.13866233826],"name":"壬丰大厦西厅","staytime":"124min","time":"2017-09-17 10:21:42"},{"loc":[113.280097961426,23.13165664673],"name":"俊逸园","staytime":"144min","time":"2017-09-17 12:56:39"},{"loc":[113.317901611328,23.14375114441],"name":"企晟大厦","staytime":"217min","time":"2017-09-17 16:43:26"},{"loc":[113.321250915527,23.14130592346],"name":"广州大道北5号大院","staytime":"63min","time":"2017-09-17 17:51:16"},{"loc":[113.303024291992,23.13099479675],"name":"东山铝泰公馆私亨家","staytime":"155min","time":"2017-09-17 20:34:06"},{"loc":[113.338798522949,23.14183425903],"name":"国德大厦","staytime":"13min","time":"2017-09-17 21:00:23"},{"loc":[113.389282226562,23.13971138],"name":"棠德花苑","staytime":"165min","time":"2017-09-17 23:59:23"},{"loc":[113.389282226562,23.13971138],"name":"棠德花苑","staytime":"484min","time":"2017-09-18 08:04:45"},{"loc":[113.278228759766,23.13585281372],"name":"广州市国土资源和房屋管理局","staytime":"585min","time":"2017-09-18 18:07:33"},{"loc":[113.389282226562,23.13971138],"name":"棠德花苑","staytime":"324min","time":"2017-09-18 23:59:02"},{"loc":[113.389282226562,23.13971138],"name":"棠德花苑","staytime":"484min","time":"2017-09-19 08:04:10"},{"loc":[113.278228759766,23.13585281372],"name":"广州市国土资源和房屋管理局","staytime":"573min","time":"2017-09-19 17:58:26"},{"loc":[113.389282226562,23.13971138],"name":"棠德花苑","staytime":"333min","time":"2017-09-19 23:59:17"},{"loc":[113.389282226562,23.13971138],"name":"棠德花苑","staytime":"461min","time":"2017-09-20 07:41:47"},{"loc":[113.278228759766,23.13585281372],"name":"广州市国土资源和房屋管理局","staytime":"476min","time":"2017-09-20 15:59:58"},{"loc":[113.242729187012,23.12724113464],"name":"泮溪酒家","staytime":"119min","time":"2017-09-20 18:59:00"},{"loc":[113.389282226562,23.13971138],"name":"棠德花苑","staytime":"262min","time":"2017-09-20 23:59:35"},{"loc":[113.389282226562,23.13971138],"name":"棠德花苑","staytime":"485min","time":"2017-09-21 08:05:21"},{"loc":[113.278228759766,23.13585281372],"name":"广州市国土资源和房屋管理局","staytime":"572min","time":"2017-09-21 17:58:52"},{"loc":[113.389282226562,23.13971138],"name":"棠德花苑","staytime":"330min","time":"2017-09-21 23:59:05"},{"loc":[113.389282226562,23.13971138],"name":"棠德花苑","staytime":"486min","time":"2017-09-22 08:06:08"},{"loc":[113.278228759766,23.13585281372],"name":"广州市国土资源和房屋管理局","staytime":"543min","time":"2017-09-22 17:29:47"},{"loc":[113.327033996582,23.12029457092],"name":"空中1号餐厅","staytime":"119min","time":"2017-09-22 20:29:00"},{"loc":[113.329559326172,23.15579795837],"name":"九号行馆水疗城","staytime":"89min","time":"2017-09-22 21:59:00"},{"loc":[113.253684997559,23.13458824158],"name":"广州稚友趣儿童主题乐园","staytime":"69min","time":"2017-09-22 23:31:16"},{"loc":[113.389282226562,23.13971138],"name":"棠德花苑","staytime":"481min","time":"2017-09-23 08:01:16"},{"loc":[113.278228759766,23.13585281372],"name":"广州市国土资源和房屋管理局","staytime":"550min","time":"2017-09-23 17:29:10"},{"loc":[113.342529296875,23.14414215088],"name":"足泰沐足","staytime":"119min","time":"2017-09-23 20:29:00"},{"loc":[113.389282226562,23.13971138],"name":"棠德花苑","staytime":"188min","time":"2017-09-23 23:58:41"},{"loc":[113.389282226562,23.13971138],"name":"棠德花苑","staytime":"479min","time":"2017-09-24 07:59:18"},{"loc":[113.278228759766,23.13585281372],"name":"广州市国土资源和房屋管理局","staytime":"402min","time":"2017-09-24 14:59:13"},{"loc":[113.266670227051,23.38529396057],"name":"金沙酒吧(清莲路)","staytime":"89min","time":"2017-09-24 17:29:00"},{"loc":[113.273918151855,23.1281375885],"name":"PP虎子(光明广场)","staytime":"59min","time":"2017-09-24 19:07:16"},{"loc":[113.389282226562,23.13971138],"name":"棠德花苑","staytime":"258min","time":"2017-09-24 23:59:46"},{"loc":[113.389282226562,23.13971138],"name":"棠德花苑","staytime":"487min","time":"2017-09-25 08:07:19"},{"loc":[113.278228759766,23.13585281372],"name":"广州市国土资源和房屋管理局","staytime":"578min","time":"2017-09-25 18:05:47"},{"loc":[113.389282226562,23.13971138],"name":"棠德花苑","staytime":"327min","time":"2017-09-25 23:59:21"},{"loc":[113.389282226562,23.13971138],"name":"棠德花苑","staytime":"478min","time":"2017-09-26 07:58:53"},{"loc":[113.278228759766,23.13585281372],"name":"广州市国土资源和房屋管理局","staytime":"586min","time":"2017-09-26 18:02:54"},{"loc":[113.277893066406,23.12416648865],"name":"廷年棋牌室","staytime":"49min","time":"2017-09-26 19:02:49"},{"loc":[113.389282226562,23.13971138],"name":"棠德花苑","staytime":"265min","time":"2017-09-26 23:58:59"},{"loc":[113.389282226562,23.13971138],"name":"棠德花苑","staytime":"485min","time":"2017-09-27 08:05:30"},{"loc":[113.278228759766,23.13585281372],"name":"广州市国土资源和房屋管理局","staytime":"573min","time":"2017-09-27 17:57:30"},{"loc":[113.389282226562,23.13971138],"name":"棠德花苑","staytime":"332min","time":"2017-09-27 23:59:25"},{"loc":[113.389282226562,23.13971138],"name":"棠德花苑","staytime":"485min","time":"2017-09-28 08:05:13"},{"loc":[113.278228759766,23.13585281372],"name":"广州市国土资源和房屋管理局","staytime":"577min","time":"2017-09-28 18:01:29"},{"loc":[113.525756835938,22.79811477661],"name":"米尔体育健身会所","staytime":"77min","time":"2017-09-28 20:19:05"},{"loc":[113.389282226562,23.13971138],"name":"棠德花苑","staytime":"140min","time":"2017-09-28 23:31:57"},{"loc":[113.389282226562,23.13971138],"name":"棠德花苑","staytime":"27min","time":"2017-09-28 23:59:09"},{"loc":[113.389282226562,23.13971138],"name":"棠德花苑","staytime":"448min","time":"2017-09-29 07:28:00"},{"loc":[113.389282226562,23.13971138],"name":"棠德花苑","staytime":"30min","time":"2017-09-29 07:59:00"},{"loc":[113.278228759766,23.13585281372],"name":"广州市国土资源和房屋管理局","staytime":"668min","time":"2017-09-29 19:29:07"},{"loc":[113.246253967285,23.39156341553],"name":"欢乐纯K主题KTV","staytime":"149min","time":"2017-09-29 22:59:00"},{"loc":[113.258209228516,23.12448501587],"name":"孟常老年公寓","staytime":"15min","time":"2017-09-29 23:59:00"},{"loc":[113.258209228516,23.12448501587],"name":"孟常老年公寓","staytime":"47min","time":"2017-09-30 00:47:00"},{"loc":[113.389282226562,23.13971138],"name":"棠德花苑","staytime":"495min","time":"2017-09-30 08:15:46"},{"loc":[113.257804870605,23.14567947388],"name":"陈岗路11号大院南区","staytime":"73min","time":"2017-09-30 09:51:42"},{"loc":[113.257514953613,23.12317276001],"name":"联和桌球城","staytime":"38min","time":"2017-09-30 10:40:19"},{"loc":[113.251441955566,23.13487815857],"name":"广州市粮局宿舍大院","staytime":"121min","time":"2017-09-30 12:48:42"},{"loc":[113.270278930664,23.13129806519],"name":"百汇广场","staytime":"188min","time":"2017-09-30 16:04:50"},{"loc":[113.284759521484,23.14599990845],"name":"惠州大厦(环市中路)","staytime":"165min","time":"2017-09-30 19:01:41"},{"loc":[113.294960021973,23.12572479248],"name":"海印苑","staytime":"60min","time":"2017-09-30 20:11:12"},{"loc":[113.389282226562,23.13971138],"name":"棠德花苑","staytime":"209min","time":"2017-09-30 23:59:32"},{"loc":[113.389282226562,23.13971138],"name":"棠德花苑","staytime":"478min","time":"2017-10-01 07:58:17"},{"loc":[113.31413269043,23.39566802979],"name":"广州白云国际机场","staytime":"59min","time":"2017-10-01 11:19:00"},{"loc":[113.573753356934,22.14394187927],"name":"澳门新濠影汇酒店","staytime":"599min","time":"2017-10-01 23:59:00"},{"loc":[113.573753356934,22.14394187927],"name":"澳门新濠影汇酒店","staytime":"515min","time":"2017-10-02 08:35:04"},{"loc":[113.559516906738,22.18884849548],"name":"美高梅金殿娛樂場","staytime":"539min","time":"2017-10-02 19:59:00"},{"loc":[113.573753356934,22.14394187927],"name":"澳门新濠影汇酒店","staytime":"179min","time":"2017-10-02 23:59:00"},{"loc":[113.573753356934,22.14394187927],"name":"澳门新濠影汇酒店","staytime":"490min","time":"2017-10-03 08:10:48"},{"loc":[113.559516906738,22.18884849548],"name":"美高梅金殿娛樂場","staytime":"539min","time":"2017-10-03 19:59:00"},{"loc":[113.573753356934,22.14394187927],"name":"澳门新濠影汇酒店","staytime":"179min","time":"2017-10-03 23:59:00"},{"loc":[113.573753356934,22.14394187927],"name":"澳门新濠影汇酒店","staytime":"511min","time":"2017-10-04 08:31:00"},{"loc":[113.559516906738,22.18884849548],"name":"美高梅金殿娛樂場","staytime":"539min","time":"2017-10-04 19:59:00"},{"loc":[113.573753356934,22.14394187927],"name":"澳门新濠影汇酒店","staytime":"179min","time":"2017-10-04 23:59:00"},{"loc":[113.573753356934,22.14394187927],"name":"澳门新濠影汇酒店","staytime":"509min","time":"2017-10-05 08:29:05"},{"loc":[113.559516906738,22.18884849548],"name":"美高梅金殿娛樂場","staytime":"539min","time":"2017-10-05 19:59:00"},{"loc":[113.573753356934,22.14394187927],"name":"澳门新濠影汇酒店","staytime":"179min","time":"2017-10-05 23:59:00"},{"loc":[113.573753356934,22.14394187927],"name":"澳门新濠影汇酒店","staytime":"518min","time":"2017-10-06 08:38:09"},{"loc":[113.559516906738,22.18884849548],"name":"美高梅金殿娛樂場","staytime":"539min","time":"2017-10-06 19:59:00"},{"loc":[113.573753356934,22.14394187927],"name":"澳门新濠影汇酒店","staytime":"179min","time":"2017-10-06 23:59:00"},{"loc":[113.573753356934,22.14394187927],"name":"澳门新濠影汇酒店","staytime":"528min","time":"2017-10-07 08:48:39"},{"loc":[113.278228759766,23.13585281372],"name":"广州市国土资源和房屋管理局","staytime":"434min","time":"2017-10-07 18:00:47"},{"loc":[113.389282226562,23.13971138],"name":"棠德花苑","staytime":"333min","time":"2017-10-07 23:58:59"},{"loc":[113.389282226562,23.13971138],"name":"棠德花苑","staytime":"476min","time":"2017-10-08 07:56:01"},{"loc":[113.280082702637,23.13217735291],"name":"combo电玩","staytime":"41min","time":"2017-10-08 08:54:58"},{"loc":[113.256935119629,23.11667633057],"name":"岭南街十三行社区群众文体委员会","staytime":"131min","time":"2017-10-08 11:19:51"},{"loc":[113.371559143066,23.10803794861],"name":"琶洲会馆行政楼","staytime":"54min","time":"2017-10-08 12:39:22"},{"loc":[113.318603515625,23.13054275513],"name":"东山上品","staytime":"31min","time":"2017-10-08 13:29:39"},{"loc":[113.30638885498,23.1351776123],"name":"保安街小区","staytime":"202min","time":"2017-10-08 16:57:12"},{"loc":[113.290390014648,23.12782478333],"name":"华逸阁","staytime":"177min","time":"2017-10-08 20:04:42"},{"loc":[113.333976745605,23.13631057739],"name":"天宝大厦","staytime":"23min","time":"2017-10-08 20:38:48"},{"loc":[113.389282226562,23.13971138],"name":"棠德花苑","staytime":"186min","time":"2017-10-08 23:59:52"},{"loc":[113.389282226562,23.13971138],"name":"棠德花苑","staytime":"488min","time":"2017-10-09 08:08:05"},{"loc":[113.320556640625,23.22416305542],"name":"颐和山庄","staytime":"839min","time":"2017-10-09 23:59:00"},{"loc":[113.389282226562,23.13971138],"name":"棠德花苑","staytime":"473min","time":"2017-10-10 07:53:49"},{"loc":[113.278228759766,23.13585281372],"name":"广州市国土资源和房屋管理局","staytime":"576min","time":"2017-10-10 17:50:07"},{"loc":[113.250205993652,23.13271522522],"name":"中国国家跆拳道示范团人才输送单位","staytime":"116min","time":"2017-10-10 19:59:38"},{"loc":[113.389282226562,23.13971138],"name":"棠德花苑","staytime":"202min","time":"2017-10-10 23:59:17"}],"name":"张三春"}],"mapZoom":13}};
+    var color = ['#3DAFEE', '#97cfff', '#DC3F5A', '#41AB61', '#D9AD44', '#B0C367', '#68356E', '#DC647D', '#D37F43'];
+    var linedataItem = [];
+    var pointdataItem = [];
+
+    // console.time('timer1');
+    // console.log(data);
+    var guijidata = data.data.guijidata;
+    guijidata.forEach(function (person, i) {
+        var locs = person.locs
+        var len = locs.length;
+        var colorItem = color[i % 2];
+        locs.forEach(function (item, i) {
+            // console.log(item);
+
+            //坐标点数组
+            pointdataItem.push({
+                "name": item.name,
+                "symbolSize": 8,
+                "value": locs[i].loc,
+                'itemStyle': {
+                    "normal": {
+                        "color": colorItem,
+                        opacity: 0.8
+                    }
+                },
+                'personName': person.name
+            });
+
+
+            //轨迹线数组
+            if (i < len - 1) {
+                // console.log(linedata);
+                linedataItem.push({
+                    "fromName": locs[i].name,
+                    "toName": locs[i + 1].name,
+                    "coords": [locs[i].loc, locs[i + 1].loc],
+                    'lineStyle': {"normal": {"color": colorItem}},
+                    'personName': person.name
+                })
+            }
+        });
+    });
+    var myChart = echarts.init(document.getElementById('guiJiMap'));
+    var option = {
+        tooltip: {
+            trigger: 'item',
+        },
+        bmap: {
+            center: [113.270218, 23.136903],
+            zoom: 12,
+            option: {enableMapClick: false},
+            roam: true,
+            mapStyle: {
+                styleJson: [
+                    {
+                        "featureType": "water",
+                        "elementType": "all",
+                        "stylers": {
+                            "color": "#021019"
+                        }
+                    },
+                    {
+                        "featureType": "highway",
+                        "elementType": "geometry.fill",
+                        "stylers": {
+                            "color": "#000000"
+                        }
+                    },
+                    {
+                        "featureType": "highway",
+                        "elementType": "geometry.stroke",
+                        "stylers": {
+                            "color": "#147a92"
+                        }
+                    },
+                    {
+                        "featureType": "arterial",
+                        "elementType": "geometry.fill",
+                        "stylers": {
+                            "color": "#000000"
+                        }
+                    },
+                    {
+                        "featureType": "arterial",
+                        "elementType": "geometry.stroke",
+                        "stylers": {
+                            "color": "#0b3d51"
+                        }
+                    },
+                    {
+                        "featureType": "local",
+                        "elementType": "geometry",
+                        "stylers": {
+                            "color": "#000000"
+                        }
+                    },
+                    {
+                        "featureType": "land",
+                        "elementType": "all",
+                        "stylers": {
+                            "color": "#08304b"
+                        }
+                    },
+                    {
+                        "featureType": "railway",
+                        "elementType": "geometry.fill",
+                        "stylers": {
+                            "color": "#000000"
+                        }
+                    },
+                    {
+                        "featureType": "railway",
+                        "elementType": "geometry.stroke",
+                        "stylers": {
+                            "color": "#08304b"
+                        }
+                    },
+                    {
+                        "featureType": "subway",
+                        "elementType": "geometry",
+                        "stylers": {
+                            // "lightness": -70
+                            "color": "#022338ff",
+                            // "visibility": "off"
+                        }
+                    },
+                    {
+                        "featureType": "building",
+                        "elementType": "geometry.fill",
+                        "stylers": {
+                            "color": "#000000"
+                        }
+                    },
+                    {
+                        "featureType": "all",
+                        "elementType": "labels.text.fill",
+                        "stylers": {
+                            "color": "#857f7f"
+                        }
+                    },
+                    {
+                        "featureType": "all",
+                        "elementType": "labels.text.stroke",
+                        "stylers": {
+                            "color": "#000000"
+                        }
+                    },
+                    {
+                        "featureType": "building",
+                        "elementType": "geometry",
+                        "stylers": {
+                            "color": "#022338"
+                        }
+                    },
+                    {
+                        "featureType": "green",
+                        "elementType": "geometry",
+                        "stylers": {
+                            "color": "#062032"
+                        }
+                    },
+                    {
+                        "featureType": "highway",
+                        "elementType": "all",
+                        "stylers": {
+                            "color": "#1e1c1c",
+                            "visibility": "off"
+                        }
+                    },
+                    {
+                        "featureType": "manmade",
+                        "elementType": "all",
+                        "stylers": {
+                            "color": "#022338"
+                        }
+                    },
+                    {
+                        "featureType": "poi",
+                        "elementType": "all",
+                        "stylers": {
+                            "color": "#022338",
+                            "visibility": "off"
+                        }
+                    }
+
+                ]
+            }
+        },
+        tooltip: {
+            trigger: 'item',
+            formatter: function (param) {
+                var data = param.data;
+                // console.log(data);
+                if(data.symble){
+                    var html = '异常原因：长时间停留';
+                }else{
+                    if (!data.hasOwnProperty("fromName")) {
+                        var gpsLon = Math.round(parseFloat(data.value[0]) * 1000000) / 1000000;
+                        var gpsLat = Math.round(parseFloat(data.value[1]) * 1000000) / 1000000;
+                        var html = '<div style="background-color: #0a2b1d;color: #fff;padding: 10px;line-height: 20px"> 姓名：' + data.personName + ' <br>地点：' + (data.name || ('[ ' + gpsLon + ' , ' + gpsLat + ' ]')) + '</div>';
+                        // console.log(data);
+                    } else {
+                        // console.log(data);
+                        var sgpsLon = Math.round(parseFloat(data.coords[0][0]) * 1000000) / 1000000;
+                        var sgpsLat = Math.round(parseFloat(data.coords[0][1]) * 1000000) / 1000000;
+                        var egpsLon = Math.round(parseFloat(data.coords[1][0]) * 1000000) / 1000000;
+                        var egpsLat = Math.round(parseFloat(data.coords[1][1]) * 1000000) / 1000000;
+
+                        var html = '<div style="background-color: #0a2b1d;color: #fff;padding: 10px;line-height: 20px"> 姓名：' + data.personName + ' <br>起始地：' + (data.fromName || ('[ ' + sgpsLon + ' , ' + sgpsLat + ' ]')) + ' <br>目的地：' + (data.toName || ('[ ' + egpsLon + ' , ' + egpsLat + ' ]')) + '</div>'
+                    }
+                }
+                return html;
+            }
+        },
+
+        series: [
+            {
+                // name: linedataItem.title,
+//                 type: 'effectScatter',
+                type: 'scatter',
+                coordinateSystem: 'bmap',
+                zlevel: 2,
+                symbol: 'circle',
+                symbolSize: 16,
+                rippleEffect: {
+                    brushType: 'stroke',
+                    period: 10,
+                    scale: 3,
+                    opacity: 0.8
+                },
+
+                label: {
+                    emphasis: {
+                        show: true,
+                        position: 'right',
+                        formatter: '{b}'
+                    }
+                },
+                data: pointdataItem
+//                    data: allData.citys
+            },
+            {
+                // name: linedataItem.title,
+                type: 'lines',
+                coordinateSystem: 'bmap',
+                zlevel: 2,
+                large: true,
+                effect: {
+                    show: true,
+                    period: 5,
+                    trailLength: 0,
+                    symbol: 'circle',//ECharts 提供的标记类型包括 'circle', 'rect', 'roundRect', 'triangle', 'diamond', 'pin', 'arrow'
+                    symbolSize: 4
+                },
+                lineStyle: {
+                    normal: {
+                        width: 2,
+                        shadowBlur: 10,
+                        shadowColor: '#000',
+                        opacity: 0.8,
+                        curveness: 0.3
+                    },
+                    emphasis: {
+                        width: 3,
+                        shadowBlur: 10,
+                        shadowColor: '#fff',
+                        opacity: 1
+
+                    }
+                },
+                data: linedataItem
+            }]
+    };
+    // console.log('Timer2s');
+    // console.time('Timer2');
+    myChart.setOption(option);
+    // console.timeEnd('Timer2');
+    // console.log('Timer2e');
+
+
+    window.addEventListener("resize", function () {
+        myChart.resize();
+    });
+
+
+</script>
+</body>
+</html>
